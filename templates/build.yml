@@ -17,3 +17,10 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.buildConfiguration }}'
     zipAfterPublish: true
+
+schedules: 
+- cron: 0 3 * * "Mon-Fri"
+  displayName: Weekday at 3:00 am
+  branches:
+    include:
+    - main   
